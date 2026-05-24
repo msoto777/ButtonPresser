@@ -10,13 +10,13 @@ class ButtonPresser:
         self.pin = pin
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
-        GPIO.setup(self.pin, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(self.pin, GPIO.OUT, initial=GPIO.HIGH)
 
     def outputOn(self) -> None:
-        GPIO.output(self.pin, GPIO.HIGH)
+        GPIO.output(self.pin, GPIO.LOW)
 
     def outputOff(self) -> None:
-        GPIO.output(self.pin, GPIO.LOW)
+        GPIO.output(self.pin, GPIO.HIGH)
 
     def cleanup(self) -> None:
         GPIO.cleanup(self.pin)
