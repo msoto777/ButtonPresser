@@ -28,8 +28,8 @@ def main() -> None:
                 time.sleep(GAP_BETWEEN_CYCLES_S)
         print("done; relay left open")
     finally:
-        # Active-LOW board: HIGH on pin = relay open. Skip GPIO.cleanup()
-        # so the pin doesn't briefly drop LOW (which would re-close the relay).
+        # Active-HIGH board: LOW on pin = relay de-energized. Skip GPIO.cleanup()
+        # so the pin holds LOW instead of reverting to a floating/pulled state.
         presser.outputOff()
 
 
